@@ -7,8 +7,6 @@ formEl.addEventListener('submit', submitForm);
 
 const STORAGE_KEY = "feedback-form-state";
 
-// const values = JSON.parse(localStorage.getItem(STORAGE_KEY))
-// console.log(values);
 const storage = {};
 
 function getStorageValues() {
@@ -18,7 +16,7 @@ function getStorageValues() {
          formEl.email.value = storageData.email;
          formEl.message.value = storageData.message;
          console.log(storageData);
-     }
+     } 
  }
 getStorageValues();
 
