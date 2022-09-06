@@ -9,17 +9,6 @@ const STORAGE_KEY = "feedback-form-state";
 
 const storage = {};
 
-function getStorageValues() {
-    const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY))
- 
-     if(storageData) {
-         formEl.email.value = storageData.email;
-         formEl.message.value = storageData.message;
-         console.log(storageData);
-     } 
- }
-getStorageValues();
-
 function addInformationToStorage(event) {
     storage[event.target.name] = event.target.value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(storage));
@@ -32,4 +21,13 @@ function submitForm(event) {
     localStorage.removeItem(STORAGE_KEY);
 }
 
+function getStorageValues() {
+    const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY))
 
+     if(storageData) {
+        formEl.email.value = storageData.email || '';
+        formEl.message.value = storageData.message || '';
+        console.log(storageData);
+     };
+ }
+getStorageValues();
